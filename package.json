@@ -1,0 +1,26 @@
+{
+  "name": "node-proxy",
+  "version": "0.0.1",
+  "description": "implementation of node-http-proxy for colorado demography office",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/royhobbstn/node-proxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "demography"
+  ],
+  "author": "Daniel Trone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/royhobbstn/node-proxy/issues"
+  },
+  "homepage": "https://github.com/royhobbstn/node-proxy#readme",
+  "dependencies": {
+    "http-proxy": "^1.13.2"
+  }
+}
