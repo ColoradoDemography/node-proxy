@@ -3,13 +3,10 @@ var http = require('http'),
 //
 // Create your proxy server and set the target in the options.
 //
-httpProxy.createProxyServer({target:'http://localhost:5000'}).listen(3000); // See (†)
 
-//
-// Create your target server
-//
-http.createServer(function (req, res) {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.write('request successfully proxied!' + '\n' + JSON.stringify(req.headers, true, 2));
-  res.end();
-}).listen(5000);
+// docker run --name nodeproxy -p 80:3000 -d royhobbstn/node-proxy
+// change 80 to 443 when SSL installed
+// new name of image might be codemog/node-proxy
+
+httpProxy.createProxyServer({target:'http://localhost:4001'}).listen(3000); // See (†)
+
