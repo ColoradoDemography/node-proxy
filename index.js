@@ -3,7 +3,7 @@ var http = require('http'),
 //
 // Create your proxy server and set the target in the options.
 //
-httpProxy.createProxyServer({target:'http://104.154.66.108:5000'}).listen(3000); // See (†)
+httpProxy.createProxyServer({target:'http://localhost:5000'}).listen(3000); // See (†)
 
 //
 // Create your target server
