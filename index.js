@@ -17,7 +17,7 @@ http.createServer(function(req, res) {
     console.log(hostname);
     console.log(pathname);
 
-    switch(firstdir)
+    switch(firstdir[1])
     {
         case 'lookups':
             proxy.web(req, res, { target: 'http://lookups:4001' });
