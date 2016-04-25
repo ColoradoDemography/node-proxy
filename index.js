@@ -16,7 +16,7 @@ var options = {
 };
 
 // bind to port 80 on the specified IP address
-httpProxy.createServer(options).listen(3000);
+httpProxy.createProxyServer(options).listen(3000);
 
 //httpProxy.createProxyServer({target:'http://lookups:4001'}).listen(3000); // See (†)
 //httpProxy.createProxyServer({target:'http://shinyserver:3838'}).listen(3000); // See (†)
