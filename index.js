@@ -8,7 +8,7 @@ var httpProxy = require('http-proxy');
 httpProxy.createServer({
   hostnameOnly: true,
   router: {
-    '/lookups': 'lookups:4001',
-    '/shiny' : 'shinyserver:3838'
+    '/lookups': 'http://104.197.166.228:4001',
+    '/shiny' : 'http://104.197.166.228:3838'
   }
 }).listen(3000);
