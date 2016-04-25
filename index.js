@@ -26,13 +26,13 @@ http.createServer(function(req, res) {
     console.log(hostname);
     console.log(pathname);
 
-    switch(hostname)
+    switch(pathname)
     {
-        case 'foo.loc':
-            proxy.web(req, res, { target: 'http://localhost:9001' });
+        case '/':
+            proxy.web(req, res, { target: 'http://shinyserver:3838' });
             break;
-        case 'bar.loc':
-            proxy.web(req, res, { target: 'http://localhost:9002' });
+        case '/lookups':
+            proxy.web(req, res, { target: 'http://lookups:4001' });
             break;
         default:
             proxy.web(req, res, { target: 'http://shinyserver:3838' });
