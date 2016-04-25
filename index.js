@@ -10,8 +10,8 @@ var http = require('http'),
 var options = {
   pathnameOnly: true,
   router: {
-    '/lookups': 'http://lookups:4001',
-    '/shiny': 'http://shinyserver:3838'
+    '/lookups': 'http://104.197.166.228:4001',
+    '/shiny': 'http://104.197.166.228:3838'
   }
 };
 
