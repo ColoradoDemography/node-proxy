@@ -35,7 +35,7 @@ http.createServer(function(req, res) {
             proxy.web(req, res, { target: 'http://localhost:9002' });
             break;
         default:
-            proxy.web(req, res, { target: 'http://localhost:3838' });
+            proxy.web(req, res, { target: 'http://shinyserver:3838' });
     }
 }).listen(3000, function() {
     console.log('proxy listening on port 3000');
