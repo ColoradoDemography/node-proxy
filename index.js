@@ -4,7 +4,8 @@
 
 var http = require('http');
 var httpProxy = require('http-proxy');
-var httpProxy.createServer({
+
+httpProxy.createServer({
   hostnameOnly: true,
   router: {
     '/lookups': 'lookups:4001',
