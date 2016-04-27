@@ -9,11 +9,11 @@ var http = require('http'),
     url = require('url');
 
 var sslobj={		
-        key: read('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
-        cert: read('ssl/docker/ServerCertificate.crt', 'utf8'),
+        key: 'ssl/docker/gis_dola_colorado_gov.key',
+        cert: 'ssl/docker/ServerCertificate.crt',
         ca: [
-            read('ssl/docker/Intermediate1.crt', 'utf8'),
-            read('ssl/docker/Intermediate2.crt', 'utf8')
+            'ssl/docker/Intermediate1.crt',
+            'ssl/docker/Intermediate2.crt'
         ]
 };
 
