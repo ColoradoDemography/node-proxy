@@ -3,22 +3,10 @@
 // change 80 to 443 when SSL installed
 
 
-
 var http = require('http'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxyServer({}),
     url = require('url');
-
-
-var sslobj={
-        key: read('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
-        cert: read('ssl/docker/ServerCertificate.crt', 'utf8'),
-        ca: [
-            read('ssl/docker/Intermediate1.crt', 'utf8'),
-            read('ssl/docker/Intermediate2.crt', 'utf8')
-        ]
-};
-
 
 http.createServer(function(req, res) {
     var hostname = req.headers.host.split(":")[0];
