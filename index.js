@@ -20,7 +20,7 @@ var sslobj={
 };
 
 
-http.createServer(sslobj, function(req, res) {
+http.createServer(function(req, res) {
     var hostname = req.headers.host.split(":")[0];
     var pathname = url.parse(req.url).pathname;
     var firstdir = pathname.split("/");
