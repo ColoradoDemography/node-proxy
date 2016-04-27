@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:base-5
+FROM mhart/alpine-node:5
 
 ADD . .
 
