@@ -6,7 +6,7 @@ ADD . .
 # RUN apk add --no-cache make gcc g++ python
 
 # If you need npm, don't use a base tag
-RUN npm install
+apk add --update bash && npm install
 
 EXPOSE 3000
 
