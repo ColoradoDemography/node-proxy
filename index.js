@@ -26,7 +26,7 @@ var sslobj={
 //   ssl: sslobj
 // }).listen(3000);
 
-https.createServer(function(req, res) {
+httpProxy.createServer(function(req, res) {
   
     var hostname = req.headers.host.split(":")[0];
     var pathname = url.parse(req.url).pathname;
