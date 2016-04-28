@@ -5,10 +5,7 @@
 var sslobj={		
         key: 'ssl/docker/gis_dola_colorado_gov.key',
         cert: 'ssl/docker/ServerCertificate.crt',
-        ca: [
-            'ssl/docker/Intermediate1.crt',
-            'ssl/docker/Intermediate2.crt'
-        ]
+        ca: 'ssl/docker/ChainBundle2.crt'
 };
 
 var redbird = require('redbird')({
