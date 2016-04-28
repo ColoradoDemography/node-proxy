@@ -18,13 +18,13 @@ var sslobj={
         ]
 };
 
-httpProxy.createServer({
-  target: {
-    host: 'shinyserver',
-    port: 3838
-  },
-  ssl: sslobj
-}).listen(3000);
+// httpProxy.createServer({
+//   target: {
+//     host: 'shinyserver',
+//     port: 3838
+//   },
+//   ssl: sslobj
+// }).listen(3000);
 
 http.createServer(function(req, res) {  
   proxy.web(req, res, { target: "http://shinyserver:3838", ssl: sslobj } );
