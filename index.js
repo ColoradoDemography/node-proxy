@@ -9,8 +9,8 @@ var redbird = require('redbird')({
 
 require('redbird')
   .docker(redbird)
-  .register('gis.dola.colorado.gov/', 'codemog/codemog-shiny-server')
-  .register('gis.dola.colorado.gov/lookups', 'codemog/ms_demog_lookups');
+  .register('gis.dola.colorado.gov/', 'codemog/codemog-shiny-server');
+  //.register('gis.dola.colorado.gov/lookups', 'codemog/ms_demog_lookups');
 
 
 
