@@ -10,11 +10,14 @@ var sslobj={
 };
 
 var redbird = require('redbird')({
-  port: 3000,
-  ssl: sslobj
+  port: 3000
+  //,ssl: sslobj
 });
 
-redbird.register('gis.dola.colorado.gov/', 'http://shinyserver:3838', {ssl: true});
+
+redbird.register('gis.dola.colorado.gov/lookups', 'http://demoglookup:4001');
+redbird.register('gis.dola.colorado.gov/', 'http://shiny-server:3838');
+
   //.register('gis.dola.colorado.gov/lookups', 'codemog/ms_demog_lookups');
 
 
