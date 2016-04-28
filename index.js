@@ -19,43 +19,22 @@ var sslobj={
         ]
 };
 
- var proxy = httpProxy.createProxyServer();
 
-   http.createServer(function (req, res) {
-     
-    var hostname = req.headers.host.split(":")[0];
-    var pathname = url.parse(req.url).pathname;
-    var firstdir = pathname.split("/");
-    console.log(firstdir);
-    
-    console.log(hostname);
-    console.log(pathname);
-     
-    proxy.web(req, res, {
-      target: 'http://shinyserver:3838', ssl: sslobj
-    });
-     
+httpProxy.createServer( function (req, res, proxy) {
+
+  //proxy.proxyRequest(req, res, { secure: false, target: URL });
+  proxy.web(req, res, { target: { host: 'shinyserver', port: 3838 }, ssl: sslobj });
+  
 }).listen(3000);
 
-// Create target server
-// http.createServer(function (req, res) {
-//   res.writeHead(200, { 'Content-Type': 'text/plain' });
-//   res.write('request successfully proxied to: ' + req.url + '\n' + JSON.stringify(req.headers, true, 2));
-//   res.end();
-// }).listen(3002);
 
-
-
-
-
-
-
-
-
-
-
-
-
+// httpProxy.createServer({
+//   target: {
+//     host: 'shinyserver',
+//     port: 3838
+//   },
+//   ssl: sslobj
+// }).listen(3000);
 
 
 // thats the node http proxy
