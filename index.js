@@ -6,14 +6,15 @@
 var http = require('http'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxyServer({}),
-    url = require('url');
+    url = require('url'),
+    fs = require('fs');
 
 var sslobj={		
-        key: 'ssl/docker/gis_dola_colorado_gov.key',
-        cert: 'ssl/docker/ServerCertificate.crt',
+        key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
+        cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
         ca: [
-            'ssl/docker/Intermediate1.crt',
-            'ssl/docker/Intermediate2.crt'
+            fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
+            fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
         ]
 };
 
@@ -22,10 +23,7 @@ httpProxy.createServer({
     host: 'shinyserver',
     port: 3838
   },
-  ssl: {
-    key: fs.readFileSync('valid-ssl-key.pem', 'utf8'),
-    cert: fs.readFileSync('valid-ssl-cert.pem', 'utf8')
-  }
+  ssl: sslobj
 }).listen(3000);
 
 // http.createServer(sslobj, function(req, res) {
