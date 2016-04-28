@@ -2,12 +2,21 @@
 // docker run --name nodeproxy --link lookups:lookups --link shinyserver:shinyserver -p 80:3000 -d codemog/node-proxy
 // change 80 to 443 when SSL installed
 
+var sslobj={		
+        key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
+        cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
+        ca: [
+            fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
+            fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
+        ]
+};
 
 var redbird = require('redbird')({
   port: 3000,
+  ssl: sslobj
 });
 
-redbird.register('gis.dola.colorado.gov/', 'http://shinyserver:3838');
+redbird.register('gis.dola.colorado.gov/', 'http://shinyserver:3838', {ssl: true});
   //.register('gis.dola.colorado.gov/lookups', 'codemog/ms_demog_lookups');
 
 
