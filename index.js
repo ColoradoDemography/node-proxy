@@ -2,6 +2,15 @@
 // docker run --name nodeproxy --link lookups:lookups --link shinyserver:shinyserver -p 80:3000 -d codemog/node-proxy
 // change 80 to 443 when SSL installed
 
+var sslobj={		
+        key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
+        cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
+        ca: [
+            fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
+            fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
+        ]
+};
+
 
 var http = require('http'),
     httpProxy = require('http-proxy');
@@ -11,7 +20,7 @@ var http = require('http'),
    http.createServer(function (req, res) {
      
     proxy.web(req, res, {
-      target: 'http://shinyserver:3838'
+      target: 'http://shinyserver:3838', ssl: sslobj
     });
      
 }).listen(3000);
@@ -35,6 +44,8 @@ var http = require('http'),
 
 
 
+
+
 // thats the node http proxy
 
 
@@ -45,14 +56,7 @@ var http = require('http'),
 //     url = require('url'),
 //     fs = require('fs');
 
-// var sslobj={		
-//         key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
-//         cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
-//         ca: [
-//             fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
-//             fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
-//         ]
-// };
+
 
 // httpProxy.createServer({
 //   target: {
