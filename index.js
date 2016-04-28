@@ -3,25 +3,41 @@
 // change 80 to 443 when SSL installed
 
 
-var http      = require('http'),  
+var http = require('http'),
     httpProxy = require('http-proxy');
 
+ var proxy = httpProxy.createProxyServer();
+
+   http.createServer(function (req, res) {
+     
+    proxy.web(req, res, {
+      target: 'http://shinyserver:3838'
+    });
+     
+}).listen(3000);
+
+// Create target server
+// http.createServer(function (req, res) {
+//   res.writeHead(200, { 'Content-Type': 'text/plain' });
+//   res.write('request successfully proxied to: ' + req.url + '\n' + JSON.stringify(req.headers, true, 2));
+//   res.end();
+// }).listen(3002);
 
 
-var proxy = httpProxy.createProxy();
 
-var proxyServer = http.createServer(function(req, res) {
-  
-  if(req.path === 'forbidden') {
-    return res.end('nope');
-  }
 
-  proxy.web(req, res, {
-    target: 'http://shinyserver:3838'
-  });
-  
-  
-});
+
+
+
+
+
+
+
+
+
+// thats the node http proxy
+
+
 
 // var https = require('https'),
 //     httpProxy = require('http-proxy'),
