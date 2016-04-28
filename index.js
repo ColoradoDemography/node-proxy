@@ -7,7 +7,7 @@ var redbird = require('redbird')({
   port: 3389,
 });
 
-redbird.register('gis.dola.colorado.gov/', 'http:shinyserver:3838');
+redbird.register('gis.dola.colorado.gov/', 'http://shinyserver:3838');
   //.register('gis.dola.colorado.gov/lookups', 'codemog/ms_demog_lookups');
 
 
