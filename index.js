@@ -3,36 +3,49 @@
 // change 80 to 443 when SSL installed
 
 
+var redbird = require('redbird')({
+  port: 3389,
+});
 
-var http = require('http'),
-    httpProxy = require('http-proxy'),
-    fs = require('fs');
-
-
-
-var sslobj={		
-        key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
-        cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
-        ca: [
-            fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
-            fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
-        ]
-};
+require('redbird')
+  .docker(redbird)
+  .register('gis.dola.colorado.gov/', 'codemog/codemog-shiny-server')
+  .register('gis.dola.colorado.gov/lookups', 'codemog/ms_demog_lookups');
 
 
-httpProxy.createServer( function (req, res, proxy) {
+
+
+
+
+// var http = require('http'),
+//     httpProxy = require('http-proxy'),
+//     fs = require('fs');
+
+
+
+// var sslobj={		
+//         key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
+//         cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
+//         ca: [
+//             fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
+//             fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
+//         ]
+// };
+
+
+// httpProxy.createServer( function (req, res, proxy) {
   
-    var hostname = req.headers.host.split(":")[0];
-    var pathname = url.parse(req.url).pathname;
-    var firstdir = pathname.split("/");
-    console.log(firstdir);
-    console.log(hostname);
-    console.log(pathname);
+//     var hostname = req.headers.host.split(":")[0];
+//     var pathname = url.parse(req.url).pathname;
+//     var firstdir = pathname.split("/");
+//     console.log(firstdir);
+//     console.log(hostname);
+//     console.log(pathname);
   
-  //proxy.proxyRequest(req, res, { secure: false, target: URL });
-  proxy.web(req, res, { target: { host: 'shinyserver', port: 3838 }, ssl: sslobj });
+//   //proxy.proxyRequest(req, res, { secure: false, target: URL });
+//   proxy.web(req, res, { target: { host: 'shinyserver', port: 3838 }, ssl: sslobj });
   
-}).listen(3000);
+// }).listen(3000);
 
 
 // httpProxy.createServer({
