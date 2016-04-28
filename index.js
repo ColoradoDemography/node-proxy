@@ -39,9 +39,7 @@ httpProxy.createServer(function(req, res) {
  // proxy.web(req, res, { target: "http://shinyserver:3838", ssl: sslobj } );
   
   
-}).listen(3000, function() {
-  console.log('proxy listening on port 3000');
-  });
+}).listen(3000);
 
 
 // httpProxy.createServer(
