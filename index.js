@@ -3,20 +3,40 @@
 // change 80 to 443 when SSL installed
 
 
-var https = require('https'),
-    httpProxy = require('http-proxy'),
-    proxy = httpProxy.createProxy(),
-    url = require('url'),
-    fs = require('fs');
+var http      = require('http'),  
+    httpProxy = require('http-proxy');
 
-var sslobj={		
-        key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
-        cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
-        ca: [
-            fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
-            fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
-        ]
-};
+
+
+var proxy = httpProxy.createProxy();
+
+var proxyServer = http.createServer(function(req, res) {
+  
+  if(req.path === 'forbidden') {
+    return res.end('nope');
+  }
+
+  proxy.web(req, res, {
+    target: 'http://shinyserver:3838'
+  });
+  
+  
+});
+
+// var https = require('https'),
+//     httpProxy = require('http-proxy'),
+//     proxy = httpProxy.createProxy(),
+//     url = require('url'),
+//     fs = require('fs');
+
+// var sslobj={		
+//         key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
+//         cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
+//         ca: [
+//             fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
+//             fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
+//         ]
+// };
 
 // httpProxy.createServer({
 //   target: {
@@ -26,20 +46,6 @@ var sslobj={
 //   ssl: sslobj
 // }).listen(3000);
 
-https.createServer(function(req, res) {
-  
-    var hostname = req.headers.host.split(":")[0];
-    var pathname = url.parse(req.url).pathname;
-    var firstdir = pathname.split("/");
-    console.log(firstdir);
-    
-    console.log(hostname);
-    console.log(pathname);
-  
- //proxy.web(req, res, { target: "http://shinyserver:3838", ssl: sslobj } );
-  
-  
-}).listen(3000);
 
 
 // httpProxy.createServer(
