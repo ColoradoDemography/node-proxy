@@ -17,23 +17,34 @@ var sslobj={
         ]
 };
 
-http.createServer(sslobj, function(req, res) {
-    var hostname = req.headers.host.split(":")[0];
-    var pathname = url.parse(req.url).pathname;
-    var firstdir = pathname.split("/");
-    console.log(firstdir);
-    
-    console.log(hostname);
-    console.log(pathname);
+httpProxy.createServer({
+  target: {
+    host: 'shinyserver',
+    port: 3838
+  },
+  ssl: {
+    key: fs.readFileSync('valid-ssl-key.pem', 'utf8'),
+    cert: fs.readFileSync('valid-ssl-cert.pem', 'utf8')
+  }
+}).listen(3000);
 
-    switch(firstdir[1])
-    {
-        case 'lookups':
-            proxy.web(req, res, { target: 'http://lookups:4001' });
-            break;
-        default:
-            proxy.web(req, res, { target: 'http://shinyserver:3838' });
-    }
-}).listen(3000, function() {
-    console.log('proxy listening on port 3000');
-});
+// http.createServer(sslobj, function(req, res) {
+//     var hostname = req.headers.host.split(":")[0];
+//     var pathname = url.parse(req.url).pathname;
+//     var firstdir = pathname.split("/");
+//     console.log(firstdir);
+    
+//     console.log(hostname);
+//     console.log(pathname);
+
+//     switch(firstdir[1])
+//     {
+//         case 'lookups':
+//             proxy.web(req, res, { target: 'http://lookups:4001' });
+//             break;
+//         default:
+//             proxy.web(req, res, { target: 'http://shinyserver:3838' });
+//     }
+// }).listen(3000, function() {
+//     console.log('proxy listening on port 3000');
+// });
