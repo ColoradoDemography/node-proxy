@@ -23,6 +23,14 @@ var sslobj={
 
    http.createServer(function (req, res) {
      
+    var hostname = req.headers.host.split(":")[0];
+    var pathname = url.parse(req.url).pathname;
+    var firstdir = pathname.split("/");
+    console.log(firstdir);
+    
+    console.log(hostname);
+    console.log(pathname);
+     
     proxy.web(req, res, {
       target: 'http://shinyserver:3838', ssl: sslobj
     });
