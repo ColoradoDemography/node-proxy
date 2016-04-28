@@ -30,7 +30,7 @@ var sslobj={
 //   { target: { host: 'shinyserver', port: 3838 }, ssl: sslobj }
 //                       ).listen(3000);
 
-http.createServer(sslobj, function(req, res) {
+httpProxy.createServer(function(req, res, proxy) {
     var hostname = req.headers.host.split(":")[0];
     var pathname = url.parse(req.url).pathname;
     var firstdir = pathname.split("/");
