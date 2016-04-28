@@ -3,11 +3,11 @@
 // change 80 to 443 when SSL installed
 
 var sslobj={		
-        key: fs.readFileSync('ssl/docker/gis_dola_colorado_gov.key', 'utf8'),
-        cert: fs.readFileSync('ssl/docker/ServerCertificate.crt', 'utf8'),
+        key: 'ssl/docker/gis_dola_colorado_gov.key',
+        cert: 'ssl/docker/ServerCertificate.crt',
         ca: [
-            fs.readFileSync('ssl/docker/Intermediate1.crt', 'utf8'),
-            fs.readFileSync('ssl/docker/Intermediate2.crt', 'utf8')
+            'ssl/docker/Intermediate1.crt',
+            'ssl/docker/Intermediate2.crt'
         ]
 };
 
