@@ -11,7 +11,7 @@ var http = require('http'),
    http.createServer(function (req, res) {
      
     proxy.web(req, res, {
-      target: 'shinyserver:3838'
+      target: 'http://shinyserver:3838'
     });
      
 }).listen(3000);
