@@ -26,7 +26,7 @@ var sslobj={
 //   ssl: sslobj
 // }).listen(3000);
 
-httpProxy.createServer(function(req, res) {
+https.createServer(function(req, res) {
   
     var hostname = req.headers.host.split(":")[0];
     var pathname = url.parse(req.url).pathname;
@@ -36,7 +36,7 @@ httpProxy.createServer(function(req, res) {
     console.log(hostname);
     console.log(pathname);
   
- // proxy.web(req, res, { target: "http://shinyserver:3838", ssl: sslobj } );
+ //proxy.web(req, res, { target: "http://shinyserver:3838", ssl: sslobj } );
   
   
 }).listen(3000);
