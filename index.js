@@ -4,7 +4,7 @@
 
 
 var redbird = require('redbird')({
-  port: 3389,
+  port: 3000,
 });
 
 redbird.register('gis.dola.colorado.gov/', 'http://shinyserver:3838');
