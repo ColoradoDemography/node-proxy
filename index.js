@@ -26,11 +26,22 @@ var sslobj={
 //   ssl: sslobj
 // }).listen(3000);
 
-http.createServer(function(req, res) {  
+http.createServer(function(req, res) { 
+  
+    var hostname = req.headers.host.split(":")[0];
+    var pathname = url.parse(req.url).pathname;
+    var firstdir = pathname.split("/");
+    console.log(firstdir);
+    
+    console.log(hostname);
+    console.log(pathname);
+  
   proxy.web(req, res, { target: "http://shinyserver:3838", ssl: sslobj } );
   
   
-}).listen(3000);
+}).listen(3000, function() {
+  console.log('proxy listening on port 3000');
+  });
 
 
 // httpProxy.createServer(
