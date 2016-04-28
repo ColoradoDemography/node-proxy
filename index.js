@@ -3,7 +3,7 @@
 // change 80 to 443 when SSL installed
 
 
-var http = require('http'),
+var https = require('https'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxy(),
     url = require('url'),
@@ -26,7 +26,7 @@ var sslobj={
 //   ssl: sslobj
 // }).listen(3000);
 
-http.createServer(function(req, res) {
+https.createServer(function(req, res) {
   
     var hostname = req.headers.host.split(":")[0];
     var pathname = url.parse(req.url).pathname;
