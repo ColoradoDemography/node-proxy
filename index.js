@@ -21,4 +21,4 @@ redbird.register('gis.dola.colorado.gov/capi', 'http://censusapi:4002', {ssl: tr
 redbird.register('gis.dola.colorado.gov/cmap', 'http://censusmap:4003', {ssl: true});
 redbird.register('gis.dola.colorado.gov/grants', 'http://cogrants:4004', {ssl: true});
 redbird.register('gis.dola.colorado.gov/pt2pl', 'http://pt2pl:4005', {ssl: true});
-
+redbird.register('gis.dola.colorado.gov/sd', 'http://sdapi:4006', {ssl: true});
