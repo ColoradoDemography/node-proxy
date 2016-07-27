@@ -1,6 +1,5 @@
 
-// docker run --name nodeproxy --link lookups:lookups --link shinyserver:shinyserver -p 80:3000 -d codemog/node-proxy
-// change 80 to 443 when SSL installed
+
 
 var sslobj={
         port: 443,
