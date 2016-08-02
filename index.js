@@ -31,6 +31,8 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 // Redbird
 
+// WILL NEED TO CHANGE IF NOT USING STATE SSL
+
 var sslobj={
         port: 443,
         key: 'ssl/docker/gis_dola_colorado_gov.key',
