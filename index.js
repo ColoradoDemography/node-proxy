@@ -54,3 +54,4 @@ redbird.register('gis.dola.colorado.gov/grants', 'http://cogrants:4004', {ssl: t
 redbird.register('gis.dola.colorado.gov/pt2pl', 'http://pt2pl:4005', {ssl: true});
 redbird.register('gis.dola.colorado.gov/sd', 'http://sdapi:4006', {ssl: true});
 redbird.register('gis.dola.colorado.gov/phantom', 'http://phantom:4007', {ssl: true});
+redbird.register('gis.dola.colorado.gov/usda_webmap', 'http://usda_webmap:4545', {ssl: true});
