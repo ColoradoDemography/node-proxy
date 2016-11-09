@@ -43,6 +43,7 @@ var sslobj={
 
 var redbird = require('redbird')({
    port: 443,
+   xfwd: false,
    ssl: sslobj});
 
 redbird.register('gis.dola.colorado.gov/apps', 'http://shiny-server:3838', {ssl: true});
