@@ -35,9 +35,9 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 var sslobj={
         port: 443,
-        key: 'ssl/docker/gis_dola_colorado_gov.key',
-        cert: 'ssl/docker/ServerCertificate.crt',
-        ca: 'ssl/docker/ChainBundle2.crt'
+        key: 'ssl/docker/privkey1.pem',
+        cert: 'ssl/docker/fullchain1.pem',  
+        ca: 'ssl/docker/chain1.pem''
 };
 
 var redbird = require('redbird')({
