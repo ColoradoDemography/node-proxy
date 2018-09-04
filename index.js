@@ -35,9 +35,9 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 var sslobj={
         port: 443,
-        key: 'ssl/docker/privkey7.pem',
-        cert: 'ssl/docker/fullchain7.pem',  
-        ca: 'ssl/docker/chain7.pem'
+        key: 'ssl/docker/privkey8.pem',
+        cert: 'ssl/docker/fullchain8.pem',  
+        ca: 'ssl/docker/chain8.pem'
 };
 
 
@@ -57,5 +57,5 @@ redbird.register('gis.dola.colorado.gov/sd', 'http://sdapi:4006', {ssl: true});
 redbird.register('gis.dola.colorado.gov/phantom', 'http://phantom:4007', {ssl: true});
 redbird.register('gis.dola.colorado.gov/usda_webmap', 'http://usda_webmap:4009', {ssl: true});
 redbird.register('gis.dola.colorado.gov/munis', 'http://muniapi:4010', {ssl: true});
-//redbird.register('gis.dola.colorado.gov/profiles', 'http://shinyproxy:8080', {ssl: true});
-redbird.register('gis.dola.colorado.gov/app', 'http://shinyproxy:8080', {ssl: true});
+redbird.register('gis.dola.colorado.gov/profiles', 'http://shinyproxy:8080', {ssl: true});
+//redbird.register('gis.dola.colorado.gov/app', 'http://shinyproxy:8080', {ssl: true});
