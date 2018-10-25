@@ -46,7 +46,7 @@ var redbird = require('redbird')({
    xfwd: false,
    ssl: sslobj});
 
-redbird.register('gis.dola.colorado.gov/apps', 'http://shiny-server:3838', {ssl: true});
+//redbird.register('gis.dola.colorado.gov/apps', 'http://shiny-server:3838', {ssl: true});
 
 redbird.register('gis.dola.colorado.gov/lookups', 'http://demoglookup:4001', {ssl: true});
 redbird.register('gis.dola.colorado.gov/capi', 'http://censusapi:4002', {ssl: true});
