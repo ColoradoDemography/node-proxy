@@ -47,7 +47,6 @@ var redbird = require('redbird')({
    ssl: sslobj});
 
 redbird.register('gis.dola.colorado.gov/apps', 'http://shiny-server:3838', {ssl: true});
-
 redbird.register('gis.dola.colorado.gov/lookups', 'http://demoglookup:4001', {ssl: true});
 redbird.register('gis.dola.colorado.gov/capi', 'http://censusapi:4002', {ssl: true});
 redbird.register('gis.dola.colorado.gov/cmap', 'http://censusmap:4003', {ssl: true});
@@ -57,5 +56,5 @@ redbird.register('gis.dola.colorado.gov/sd', 'http://sdapi:4006', {ssl: true});
 redbird.register('gis.dola.colorado.gov/phantom', 'http://phantom:4007', {ssl: true});
 redbird.register('gis.dola.colorado.gov/usda_webmap', 'http://usda_webmap:4009', {ssl: true});
 redbird.register('gis.dola.colorado.gov/munis', 'http://muniapi:4010', {ssl: true});
-//redbird.register('gis.dola.colorado.gov/profiles', 'http://shiny-profiles:3838', {ssl: true});
+redbird.register('gis.dola.colorado.gov/codiad', 'http://codiad:4111', {ssl: true});
 
