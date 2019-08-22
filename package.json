@@ -23,6 +23,6 @@
   "dependencies": {
     "express": "^4.14.0",
     "http-proxy": "^1.13.2",
-    "redbird": "^0.4.14"
+    "redbird": "^0.9.1"
   }
 }
