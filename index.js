@@ -4,7 +4,7 @@
 // http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
 var http = require('http');
 var express = require('express');
-//const { constants } = require('crypto');
+const { constants } = require('crypto');
 var HTTP_PORT  = 80;
 var HTTPS_PORT = 443;
 
@@ -38,8 +38,8 @@ var sslobj={
         port: 443,
         key: 'ssl/docker/privkey15.pem',
         cert: 'ssl/docker/fullchain15.pem',  
-        ca: 'ssl/docker/chain15.pem'//,
-        //secureOptions: constants.SSL_OP_NO_TLSv1 | constants.SSL_OP_NO_TLSv1_1
+        ca: 'ssl/docker/chain15.pem',
+        secureOptions: constants.SSL_OP_NO_TLSv1 | constants.SSL_OP_NO_TLSv1_1
 };
 
 
