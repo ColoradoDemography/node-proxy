@@ -2,7 +2,6 @@
 
 Despite the monikor, uses the [Redbird](https://github.com/OptimalBits/redbird) library to proxy multiple [Docker](https://www.docker.com/) container services to a single port 443 with SSL.
 
-
 To add a container to the proxy, add a line to the end of the file like so:
 
 ```
