@@ -59,4 +59,5 @@ redbird.register('gis.dola.colorado.gov/phantom', 'http://phantom:4007', {ssl: t
 redbird.register('gis.dola.colorado.gov/usda_webmap', 'http://usda_webmap:4009', {ssl: true});
 redbird.register('gis.dola.colorado.gov/munis', 'http://muniapi:4010', {ssl: true});
 redbird.register('gis.dola.colorado.gov/profiles', 'http://profiles:4012', {ssl: true});
+redbird.register('gis.dola.colorado.gov/website2', 'http://profiles:4020', {ssl: true});
 
